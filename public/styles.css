@@ -1,0 +1,56 @@
+ body { 
+		margin: 0;
+		display: block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    background: #343434 url('images/tile.png');
+    border-width: 70px;
+		border-image: url("images/bg.png") 75 repeat;	 
+		-moz-border-image: url("images/bg.png") 75 repeat;	 
+	}
+#btn-fire{
+	display: block;
+	position: absolute;
+	left: 450px;
+	top: 100px;
+	width: 90px;
+	height: 90px;
+	cursor: pointer;
+	background: url("images/btn-fire-bg.png") left top no-repeat;
+}
+
+#btn-fire span{
+	display: block;
+	width: 90px;
+	height: 90px;
+	background: url("images/btn-fire.png") left top no-repeat;
+}
+#btn-fire.pressed span{
+	background-position: -90px top;
+}
+
+#plate {
+	position: relative;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  min-height: 400px;
+  background: url('images/panel-tile.png');
+  border-width: 60px 10px 30px 40px;
+	border-image: url("images/panel-border.png") 60 10 30 40 repeat;	 
+	-moz-border-image: url("images/panel-border.png") 60 10 30 40 repeat;	 
+}
+
+#tv {
+	position: absolute;
+	display: block;
+	width: 400px;
+	height: 342px;
+	z-index: 10;
+	background: url("images/tv.png") left top no-repeat;
+}
+
+.tv-image { margin: 40px 0 0 30px; }

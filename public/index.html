@@ -1,0 +1,59 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect('http://jefftherobot.com');
+		var consoleText = '';
+		
+		socket.on('connection', function (data) {
+			console.log(data.success);
+		});
+		
+		socket.on('message', function (data) {
+		//	var messagesObj = $.parseJSON(data);
+			console.log('from message' + data);
+			//consoleText += $.parseJSON(data).success;
+			//$('#console').html(data);
+		});
+		
+		$(function() {
+			$("#btn-fire").mouseup(function(){
+        socket.send('o');
+        $(this).removeClass("pressed");
+      }).mousedown(function(){
+				socket.send('f');
+				$(this).addClass("pressed");
+			});
+		
+		})
+		
+	</script>
+</head>
+	<body>
+	<div id="plate">
+	<!-- <video width="320" height="240" autoplay>
+			<source src="http://www.jefftherobot.com:8080/stream.ogg" type='video/ogg' />
+		</video> 
+		<object id="flowplayer" width="320" height="240" 
+        data="http://releases.flowplayer.org/swf/flowplayer-3.2.8.swf"
+        type="application/x-shockwave-flash">
+ 
+        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.8.swf" />
+        <param name="allowfullscreen" value="true" />
+ 
+        <param name="flashvars"
+            value='config={"clip":{"url":"http://www.jefftherobot.com:8080","bufferLength":1},"plugins":{"controls":null}}' />
+    </object>-->
+    <div id="tv"></div>
+    <img class="tv-image" src="http://www.jefftherobot.com:8080" width="320" height="260"/>
+		<div id="console"></div>
+		<div id="btn-fire"><span></span></div>
+		</div>
+	</body>
+</html>
+
+<!--
+vlc v4l2:///dev/video0 --sout "#transcode{vcodec=MJPG,vb=768,fps=25, scale=1}:http{mux=mpjpeg},dst=:8080}"
+cvlc -I dummy v4l2:///dev/video0:width=320:height=240 --sout '#transcode{vcodec=mjpg,scale=1,fps=25,vb=3500}:standard{access=http{mime=multipart/x-mixed-replace;boundary=--7b3cc56e5f51db803f790dad720ed50a},mux=mpjpeg,dst=:8080}' -->
