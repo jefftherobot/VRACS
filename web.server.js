@@ -8,7 +8,7 @@ serial = new serialPort("/dev/cuaU0" , {baudrate: 9600});
 app.listen(1337);
 
 app.configure(function(){
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(__dirname + '/www'));
 
 });
 
