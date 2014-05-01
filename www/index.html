@@ -4,7 +4,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io.connect('http://jefftherobot.com');
+	/*	var socket = io.connect('http://jefftherobot.com');
 		var consoleText = '';
 		
 		socket.on('connection', function (data) {
@@ -16,14 +16,14 @@
 			console.log('from message' + data);
 			//consoleText += $.parseJSON(data).success;
 			//$('#console').html(data);
-		});
+		});*/
 		
 		$(function() {
 			$("#btn-fire").mouseup(function(){
-        socket.send('o');
+       // socket.send('o');
         $(this).removeClass("pressed");
       }).mousedown(function(){
-				socket.send('f');
+				//socket.send('f');
 				$(this).addClass("pressed");
 			});
 		
@@ -47,9 +47,12 @@
             value='config={"clip":{"url":"http://www.jefftherobot.com:8080","bufferLength":1},"plugins":{"controls":null}}' />
     </object>-->
     <div id="tv"></div>
-    <img class="tv-image" src="http://www.jefftherobot.com:8080" width="320" height="260"/>
+    <!-- <img class="tv-image" src="http://www.jefftherobot.com:8080" width="320" height="260"/> -->
+    <img class="tv-image" src="http://d38zt8ehae1tnt.cloudfront.net/Live_Alien_Held_in_Isolated_Room_Part_2__13439.jpg" width="320" height="240"/>
 		<div id="console"></div>
-		<div id="btn-fire"><span></span></div>
+		<div class="sub-panel">
+			<div id="btn-fire"><span></span></div>
+		</div>
 		</div>
 	</body>
 </html>
