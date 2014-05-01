@@ -53,8 +53,8 @@
 	position: absolute;
 	top: -20px;
 	width: 115px;
-	height: 60px;
-	/* background: url("images/bkg-counter.png") no-repeat; */
+	height: 53px;
+	background: url("images/bkg-counter.png") no-repeat;
 }
 
 #btn-fire{
